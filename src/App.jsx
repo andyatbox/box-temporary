@@ -1518,7 +1518,7 @@ export default function App() {
 			e.stopPropagation();
 			const deltaY = touchStartY - e.touches[0].clientY;
 			touchStartY = e.touches[0].clientY;
-			targetScroll.current += deltaY * 0.5;
+			targetScroll.current += deltaY * 0.85;
 			targetScroll.current = Math.max(0, Math.min(targetScroll.current, maxScroll));
 		};
 
@@ -1703,9 +1703,9 @@ export default function App() {
 			{/* In-Portal Scrollable HTML UI */}
 			<div ref={portalOverlayRef} className={`absolute inset-0 bg-black/60 transition-opacity duration-1000 ease-in-out ${portalUiVisible ? 'opacity-100' : 'opacity-0'}`} style={{ zIndex: 30, pointerEvents: portalUiVisible ? 'auto' : 'none' }}>
 				{/* Fixed H1 Overlay */}
-				<div 
-					className="absolute left-0 w-full px-8 md:px-16 pointer-events-none"
-					style={{ top: windowHeight * 0.1, zIndex: 40 }}
+				<div
+					className="absolute left-0 w-full px-8 md:px-16 pointer-events-none flex items-end"
+					style={{ top: windowHeight * 0.1, height: windowHeight * 0.1, zIndex: 40 }}
 				>
 					<h1 className="text-white text-4xl md:text-6xl font-spirit border-b border-white pb-4 w-full m-0 leading-normal">
 						{activePortalId === 'portal2' ? 'Contact' : 'About Box'}
